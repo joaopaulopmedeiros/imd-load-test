@@ -22,6 +22,15 @@ services:
       dockerfile: src/Ecommerce.Api/Dockerfile
     expose:
       - 5000
+    deploy:
+      mode: replicated
+      replicas: 2
+      restart_policy:
+        condition: on-failure 
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 50M        
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - DBHOST=ecommerce-mysqldb
@@ -35,12 +44,22 @@ services:
     image: nginx:alpine
     volumes:
       - ./config/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-    depends_on:
-      - ecommerce-api
     ports:
       - 3000:3000
     networks:
       - ecommerce-network
+    depends_on:
+      - ecommerce-api
+
+  ecommerce-k6-tests:
+    image: loadimpact/k6:latest
+    volumes:
+      - ./tests/Ecommerce.Api.LoadTests/script.js:/scripts/script.js
+    command: ["run", "/scripts/script.js"]
+    networks:
+      - ecommerce-network      
+    depends_on:
+      - ecommerce-nginx
 
 networks:
   ecommerce-network:
