@@ -1,5 +1,6 @@
 # IMD Load Test
-This repository addresses a proof of concept about load test in a docker environment for educational purposes at IMD
+This repository addresses a proof of concept about load test in a docker environment for educational purposes at IMD.
+There is a 10 seconds ramp-up of requests, then 50 seconds of requests with maximum VU's (virtual users), finishing with a 10 seconds ramp-down.
 
 ## Tech stack
 - Nginx;
