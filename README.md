@@ -2,17 +2,20 @@
 This repository addresses a proof of concept about load test in a docker environment for educational purposes at IMD
 
 ## Tech stack
+- Nginx;
 - .NET 8;
 - MySQL;
 - Docker;
 - K6;
+- Grafana;
+- InfluxDB
 
-## How to get up an running
+## How to get up and running
 ```
 ./run.sh up
 ```
 
-## How to finish and destroy dependencies
+## How to clean up
 ```
 ./run.sh down
 ```
