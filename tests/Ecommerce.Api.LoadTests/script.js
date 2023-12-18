@@ -1,14 +1,12 @@
 import http from 'k6/http';
 import { check, sleep } from 'k6';
 
-const default_vus = 5;
-const target_vus_env = `${__ENV.TARGET_VUS}`;
-const target_vus = isNumeric(target_vus_env) ? Number(target_vus_env) : default_vus;
+const target_vus = 10;
 
 export const options = {
   stages: [
       { duration: "5s", target: target_vus },
-      { duration: "10s", target: target_vus },
+      { duration: "50s", target: target_vus },
       { duration: "5s", target: 0 }
   ]
 };

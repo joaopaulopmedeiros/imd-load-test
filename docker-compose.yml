@@ -58,6 +58,8 @@ services:
       - "8086:8086"
     environment:
       - INFLUXDB_DB=k6
+    depends_on:
+      - ecommerce-nginx
 
   ecommerce-grafana:
     image: grafana/grafana:8.5.21
@@ -74,8 +76,10 @@ services:
       - ./config/grafana/dashboards:/var/lib/grafana/dashboards
       - ./config/grafana/dashboard.yml:/etc/grafana/provisioning/dashboards/dashboard.yml
       - ./config/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+    depends_on:
+      - ecommerce-influxdb
 
-  k6:
+  ecommerce-k6-load-test:
     image: grafana/k6:latest
     networks:
       - ecommerce-network
@@ -83,8 +87,11 @@ services:
       - "6565:6565"
     environment:
       - K6_OUT=influxdb=http://ecommerce-influxdb:8086/k6
+    command: ["run", "/scripts/script.js"]      
     volumes:
-      - ./tests/Ecommerce.Api.LoadTests:/scripts
+      - ./tests/Ecommerce.Api.LoadTests/script.js:/scripts/script.js
+    depends_on:
+      - ecommerce-grafana
 
 networks:
   ecommerce-network:
