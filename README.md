@@ -3,7 +3,7 @@ This repository addresses a proof of concept about stress test in a docker envir
 
 ## How to run
 ```
-docker-compose up
+docker-compose up --scale ecommerce-api=2
 ```
 
 ## How to finish
