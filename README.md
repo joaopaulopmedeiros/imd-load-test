@@ -1,12 +1,18 @@
 # IMD Stress Test
 This repository addresses a proof of concept about stress test in a docker environment for educational purposes at IMD
 
+## Tech stack
+- .NET 8;
+- MySQL
+- Docker;
+- K6;
+
 ## How to run
 ```
-docker-compose up
+./run.sh up
 ```
 
 ## How to finish
 ```
-docker-compose down --volumes --rmi all
+./run.sh down
 ```
