@@ -7,12 +7,12 @@ This repository addresses a proof of concept about load test in a docker environ
 - Docker;
 - K6;
 
-## How to run
+## How to get up an running
 ```
 ./run.sh up
 ```
 
-## How to finish
+## How to finish and destroy dependencies
 ```
 ./run.sh down
 ```
