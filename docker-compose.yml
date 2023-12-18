@@ -31,6 +31,17 @@ services:
     depends_on:
       - ecommerce-mysqldb
 
+  ecommerce-nginx:
+    image: nginx:alpine
+    volumes:
+      - ./config/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - ecommerce-api
+    ports:
+      - 4000:4000
+    networks:
+      - ecommerce-network
+
 networks:
   ecommerce-network:
 
