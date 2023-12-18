@@ -22,6 +22,10 @@ public static class DependencyInjector
                 .EnableDetailedErrors()
         );
 
+        services
+            .AddHealthChecks()
+            .AddDbContextCheck<EcommerceContext>();
+
         return services;
     }
 }
