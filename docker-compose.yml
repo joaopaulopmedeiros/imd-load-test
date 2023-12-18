@@ -38,7 +38,7 @@ services:
     depends_on:
       - ecommerce-api
     ports:
-      - 4000:4000
+      - 3000:3000
     networks:
       - ecommerce-network
 
