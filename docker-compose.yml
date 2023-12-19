@@ -87,9 +87,8 @@ services:
       - "6565:6565"
     environment:
       - K6_OUT=influxdb=http://ecommerce-influxdb:8086/k6
-    command: ["run", "/scripts/script.js"]      
     volumes:
-      - ./tests/Ecommerce.Api.LoadTests/script.js:/scripts/script.js
+      - ./tests/Ecommerce.Api.LoadTests:/scripts
     depends_on:
       - ecommerce-grafana
 

@@ -14,9 +14,14 @@ This repository addresses a proof of concept about load test in a docker environ
 - Grafana;
 - InfluxDB
 
-## How to get up and running
+## How to get service up and running
 ```
 ./run.sh up
+```
+
+## How to start load test
+```
+./run.sh loadtest
 ```
 
 ## How to clean up

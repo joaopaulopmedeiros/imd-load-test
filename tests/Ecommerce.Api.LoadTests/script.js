@@ -1,7 +1,7 @@
 import http from 'k6/http';
 import { check, sleep } from 'k6';
 
-const target_vus = 10;
+const target_vus = 1000;
 
 export const options = {
   stages: [
@@ -12,7 +12,7 @@ export const options = {
 };
 
 export default function () {
-  const res = http.get('http://ecommerce-nginx:3333/products?page=1&size=1000');
+  const res = http.get('http://ecommerce-nginx:3333/products?page=1&size=1000&title=product');
   check(res, { 'status was 200': (r) => r.status == 200 });
   sleep(1);
 }
