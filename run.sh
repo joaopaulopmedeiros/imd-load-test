@@ -4,7 +4,7 @@ COMPOSE_FILE=docker-compose.yml
 
 up() {
     echo "Starting Docker Compose..."
-    docker-compose -f $COMPOSE_FILE up
+    docker-compose -f $COMPOSE_FILE up -d
 }
 
 loadtest() {
@@ -20,6 +20,7 @@ loadtest() {
         fi
     done
     echo "Starting Load Test..."
+    echo "Reports on: http://localhost:3000/d/k6/k6-load-testing-results"
     docker-compose -f $COMPOSE_FILE run ecommerce-k6-load-test run //scripts//script.js
 }
 
