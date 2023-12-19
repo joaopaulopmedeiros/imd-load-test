@@ -32,6 +32,6 @@ This repository addresses a proof of concept about load test in a docker environ
 # Results
 - Execution of load test in k6;
 - Automatic real time report of load test in grafana via influxdb;
-- Metrics collected such as median response time (29.8ms).
+- Metrics collected such as median response time.
 
-<img src="./docs/screenshot-grafana.png"/>
+<img src="./docs/screenshot-grafana-dashboard.png"/>
