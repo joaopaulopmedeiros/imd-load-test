@@ -1,18 +1,10 @@
 # IMD Load Test
 This repository addresses a proof of concept about load test in a docker environment for educational purposes at IMD.
 
-1) There is a 10 seconds ramp-up of requests;
-2) 50 seconds of requests with maximum VU's (virtual users);
-3) Finishing with a 10 seconds ramp-down.
+## Materials
+- <a href="./docs/test-plan.pdf">Test Plan</a>;
+- <a href="./docs/test-scenario.pdf">Test scenario</a>.
 
-## Tech stack
-- Nginx;
-- .NET 8;
-- MySQL;
-- Docker;
-- K6;
-- Grafana;
-- InfluxDB
 
 ## How to get service up and running
 ```
