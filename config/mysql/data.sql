@@ -13,6 +13,9 @@ CREATE TABLE IF NOT EXISTS products (
     CONSTRAINT chk_id_format CHECK (CHAR_LENGTH(id) = 36)
 );
 
+CREATE INDEX idx_sku ON products (sku);
+CREATE INDEX idx_title ON products (title);
+
 DELIMITER //
 CREATE PROCEDURE insert_thousand_products()
 BEGIN
